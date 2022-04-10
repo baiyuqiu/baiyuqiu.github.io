@@ -126,6 +126,10 @@ pbcopy < ~/.ssh/id_rsa.pub
 #### 点击 New SSH Key
 ![img](/images/220410135134.png)
 
+#### 添加 SSH Key
+![img](/images/220410141007.png)
+然后点击 ADD SSH Key。
+
 #### 测试SSH是否绑定成功
 输入以下命令：注意：git@github.com不要做任何更改！
 ``` bash
@@ -144,8 +148,64 @@ $ git config --global user.email "此处填你的邮箱"
 ```
 到此为止，SSH就在GitHub上绑定成功了，本地与Github成功连接.
 
-### 本地部署
+### 使用Hexo创建博客
+#### 下载仓库
+登录Github, 打开刚才新建的项目yourname.github.io
+复制仓库的地址，仓库地址如下图
+![img](/images/220410141506.png)
+然后在Mac电脑桌面输入下面命令，就能将Github仓库拉到本地，后面可以使用Git工具提交内容
+``` bash
+cd ~/Desktop
+git clone https://github.com/xxx/xxx.github.io.git
+```
+#### 创建博客
+打开电脑“终端”应用，输入命令
+``` bash
+cd ~/Desktop/mambarunner.github.io
+hexo init
+```
+当命令执行完成后，会在mambarunner.github.io文件夹下生成如下图所示的目录结构
+![img](/images/220410143207.png)
 
-### 远程部署
+#### 本地部署
+接下去要安装相关依赖，并在自己电脑进行本地部署
+``` bash
+npm install
+hexo clean && hexo g && hexo server
+```
+直到结果显示如下，
+``` bash
+INFO  Start processing
+INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.
+```
+并在浏览器中打开[http://localhost:4000](http://localhost:4000)，如果显示如下图，恭喜您，已经成功创建好了个人博客了，如果没有出现下面截图，可能哪一步出错了，再重新检测下。
+![img](/images/220410144048.png)
 
-## 安装主题
+
+#### 远程部署
+通过上面的本地部署，接下去我们怎么将自己的博客部署到Github page上，让大家可以访问呢。
+##### 安装工具
+``` bash
+$ npm install hexo-deployer-git --save
+```
+
+##### 修改配置
+打开mambarunner.github.io目录下_config.yml文件，将该文件最底部的deploy关键字代码：
+``` bash
+deploy:
+  type: 
+```
+修改为:
+``` bash
+deploy:
+  type: git
+  repository: https://github.com/xxx/xxx.github.io.git
+  branch: main
+```
+
+##### 部署
+在mambarunner.github.io目录下，执行
+``` bash
+$ hexo g && hexo deploy
+```
+hexo g用来生成Hexo页面，hexo d是使用hexo-deployer-git将页面部署到Github仓库中，当部署成功后，就可以可以在浏览器下输入xxx.github.io显示跟本地部署一样的内容了。
