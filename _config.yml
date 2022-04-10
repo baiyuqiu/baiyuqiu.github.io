@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 白玉邱's 博客
 subtitle: ''
 description: ''
 keywords:
-author: Cobb
+author: 白玉邱
 language: zh-cn
 timezone: ''
 
@@ -97,7 +97,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: tranquilpeak
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -105,3 +105,4 @@ deploy:
   type: 'git'
   repo: 'https://github.com/mambarunner/mambarunner.github.io'
   branch: 'main'
+  user: 'yefeng.qzk@gmail.com'
