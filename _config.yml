@@ -5,10 +5,10 @@
 # Site
 title: 白玉邱's 博客
 subtitle: ''
-description: ''
+description: '求之于势，不责于人'
 keywords:
-author: 白玉邱
-language: zh-cn
+author: ''
+language: zh-CN
 timezone: ''
 
 # URL
@@ -99,6 +99,16 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: next
 
+# RSS订阅
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: ' '
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
@@ -106,3 +116,10 @@ deploy:
   repo: 'https://github.com/mambarunner/mambarunner.github.io'
   branch: 'main'
   user: 'yefeng.qzk@gmail.com'
+
+# search
+path: search.xml
+field: post
+format: html
+limit: 1000
+
