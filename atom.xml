@@ -6,10 +6,34 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-04-26T13:30:41.895Z</updated>
+  <updated>2022-04-26T14:20:33.588Z</updated>
   <id>http://example.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo的使用</title>
+    <link href="http://example.com/2022/04/26/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://example.com/2022/04/26/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
+    <published>2022-04-26T14:20:33.000Z</published>
+    <updated>2022-04-26T14:20:33.588Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;基础使用（命令）&quot;&gt;&lt;a href=&quot;#基础使用（命令）&quot; class=&quot;headerlink&quot; title=&quot;基础使用（命令）&quot;&gt;&lt;/a&gt;基础使用（命令）&lt;/h2&gt;&lt;h3 id=&quot;hexo-s&quot;&gt;&lt;a href=&quot;#hexo-s&quot; class=&quot;headerlink&quot; title=&quot;hexo s&quot;&gt;&lt;/a&gt;hexo s&lt;/h3&gt;&lt;p&gt;作用：启动本地服务器，只能用于预览在&lt;code&gt;_posts&lt;/code&gt;目录下的主题，默认地址： &lt;a href=&quot;http://localhost:4000/%E3%80%82&quot;&gt;http://localhost:4000/。&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;hexo s&lt;/code&gt; 是 &lt;code&gt;hexo server&lt;/code&gt; 的缩写，命令效果一致；&lt;/li&gt;
+&lt;li&gt;对于主题或_config.yml的修改，需要重启本地服务器后才能预览效果；&lt;/li&gt;
+&lt;li&gt;如果预览&lt;code&gt;草稿&lt;/code&gt;中的主题，需要执行&lt;code&gt;hexo s --draft&lt;/code&gt;；&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="搭建博客" scheme="http://example.com/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+    <category term="hexo" scheme="http://example.com/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>使用Hexo+Github搭建个人博客</title>
