@@ -1,9 +1,10 @@
 ---
 title: Hexo的使用
-tags:
-    hexo
+tags: hexo
 categories: 搭建博客
+date: 2022-04-26 22:20:33
 ---
+
 ## 基础使用（命令）
 
 ### hexo s
