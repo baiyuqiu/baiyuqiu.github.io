@@ -1,11 +1,13 @@
 ---
 title: 使用Hexo+Github搭建个人博客
 tags:
-  - 搭建博客
+  hexo
+categories: 搭建博客
 date: 2022-04-17 23:22:33
 ---
 
 ![img](/images/220410112400.webp)
+<!--more-->
 ## 准备工作
 开始之前,先大致介绍一下用到的技术和相关概念:
 
@@ -139,7 +141,7 @@ $ ssh -T git@github.com
 ``` 
 回车，再次输入yes后回车，就会显示：
 ``` bash
-Hi mambarunner! You've successfully authenticated, but GitHub does not provide shell access.
+Hi BaiYuQiu! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
 #### 本地配置个人Github账号
@@ -163,10 +165,10 @@ git clone https://github.com/xxx/xxx.github.io.git
 #### 创建博客
 打开电脑“终端”应用，输入命令
 ``` bash
-cd ~/Desktop/mambarunner.github.io
+cd ~/Desktop/BaiYuQiu.github.io
 hexo init
 ```
-当命令执行完成后，会在mambarunner.github.io文件夹下生成如下图所示的目录结构
+当命令执行完成后，会在BaiYuQiu.github.io文件夹下生成如下图所示的目录结构
 ![img](/images/220410143207.png)
 
 #### 本地部署
@@ -192,7 +194,7 @@ $ npm install hexo-deployer-git --save
 ```
 
 ##### 修改配置
-打开mambarunner.github.io目录下_config.yml文件，将该文件最底部的deploy关键字代码：
+打开BaiYuQiu.github.io目录下_config.yml文件，将该文件最底部的deploy关键字代码：
 ``` bash
 deploy:
   type: 
@@ -206,7 +208,7 @@ deploy:
 ```
 
 ##### 部署
-在mambarunner.github.io目录下，执行
+在BaiYuQiu.github.io目录下，执行
 ``` bash
 $ hexo g && hexo deploy
 ```

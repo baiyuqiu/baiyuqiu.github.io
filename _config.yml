@@ -113,7 +113,7 @@ feed:
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: 'git'
-  repo: 'https://github.com/mambarunner/mambarunner.github.io'
+  repo: 'https://github.com/baiyuqiu/baiyuqiu.github.io'
   branch: 'main'
   user: 'yefeng.qzk@gmail.com'
 
