@@ -4,6 +4,7 @@
     <title>使用Hexo+Github搭建个人博客</title>
     <url>/2022/04/17/%E4%BD%BF%E7%94%A8Hexo-Github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<p><img src="/images/220410112400.webp" alt="img"></p>
+<span id="more"></span>
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>开始之前,先大致介绍一下用到的技术和相关概念:</p>
 <h3 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h3><p>GitHub是一个利用Git进行版本控制、专门用于存放软件代码与内容的共享虚拟主机服务;</p>
 <h3 id="Github-Pages"><a href="#Github-Pages" class="headerlink" title="Github Pages"></a>Github Pages</h3><p>Github Pages设计的初衷是为托管在GitHub上的项目提供介绍页面,开发者们可以通过GitHub Pages为他们的每个项目创建一个用于介绍该项目的静态网站,不过由于他的空间免费而且稳定,因此非常适合用来搭建个人博客网站;</p>
@@ -45,7 +46,7 @@
 <h4 id="点击-SSH-and-GPG-Keys"><a href="#点击-SSH-and-GPG-Keys" class="headerlink" title="点击 SSH and GPG Keys"></a>点击 SSH and GPG Keys</h4><p><img src="/images/220410134856.png" alt="img"></p>
 <h4 id="点击-New-SSH-Key"><a href="#点击-New-SSH-Key" class="headerlink" title="点击 New SSH Key"></a>点击 New SSH Key</h4><p><img src="/images/220410135134.png" alt="img"></p>
 <h4 id="添加-SSH-Key"><a href="#添加-SSH-Key" class="headerlink" title="添加 SSH Key"></a>添加 SSH Key</h4><p><img src="/images/220410141007.png" alt="img"><br>然后点击 ADD SSH Key。</p>
-<h4 id="测试SSH是否绑定成功"><a href="#测试SSH是否绑定成功" class="headerlink" title="测试SSH是否绑定成功"></a>测试SSH是否绑定成功</h4><p>输入以下命令：注意：<a href="mailto:&#103;&#x69;&#x74;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#46;&#x63;&#111;&#x6d;">&#103;&#x69;&#x74;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#46;&#x63;&#111;&#x6d;</a>不要做任何更改！</p>
+<h4 id="测试SSH是否绑定成功"><a href="#测试SSH是否绑定成功" class="headerlink" title="测试SSH是否绑定成功"></a>测试SSH是否绑定成功</h4><p>输入以下命令：注意：<a href="mailto:&#103;&#x69;&#116;&#64;&#x67;&#105;&#116;&#104;&#x75;&#98;&#x2e;&#99;&#111;&#x6d;">&#103;&#x69;&#116;&#64;&#x67;&#105;&#116;&#104;&#x75;&#98;&#x2e;&#99;&#111;&#x6d;</a>不要做任何更改！</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
 <p>回车，再次输入yes后回车，就会显示：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Hi BaiYuQiu! You<span class="string">&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure>
@@ -75,8 +76,11 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure>
 <p>hexo g用来生成Hexo页面，hexo d是使用hexo-deployer-git将页面部署到Github仓库中，当部署成功后，就可以可以在浏览器下输入xxx.github.io显示跟本地部署一样的内容了。</p>
 ]]></content>
+      <categories>
+        <category>搭建博客</category>
+      </categories>
       <tags>
-        <tag>搭建博客</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
 </search>
