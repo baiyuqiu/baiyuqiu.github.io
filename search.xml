@@ -46,7 +46,7 @@
 <h4 id="点击-SSH-and-GPG-Keys"><a href="#点击-SSH-and-GPG-Keys" class="headerlink" title="点击 SSH and GPG Keys"></a>点击 SSH and GPG Keys</h4><p><img src="/images/220410134856.png" alt="img"></p>
 <h4 id="点击-New-SSH-Key"><a href="#点击-New-SSH-Key" class="headerlink" title="点击 New SSH Key"></a>点击 New SSH Key</h4><p><img src="/images/220410135134.png" alt="img"></p>
 <h4 id="添加-SSH-Key"><a href="#添加-SSH-Key" class="headerlink" title="添加 SSH Key"></a>添加 SSH Key</h4><p><img src="/images/220410141007.png" alt="img"><br>然后点击 ADD SSH Key。</p>
-<h4 id="测试SSH是否绑定成功"><a href="#测试SSH是否绑定成功" class="headerlink" title="测试SSH是否绑定成功"></a>测试SSH是否绑定成功</h4><p>输入以下命令：注意：<a href="mailto:&#103;&#x69;&#116;&#64;&#x67;&#105;&#116;&#104;&#x75;&#98;&#x2e;&#99;&#111;&#x6d;">&#103;&#x69;&#116;&#64;&#x67;&#105;&#116;&#104;&#x75;&#98;&#x2e;&#99;&#111;&#x6d;</a>不要做任何更改！</p>
+<h4 id="测试SSH是否绑定成功"><a href="#测试SSH是否绑定成功" class="headerlink" title="测试SSH是否绑定成功"></a>测试SSH是否绑定成功</h4><p>输入以下命令：注意：<a href="mailto:&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#x74;&#104;&#117;&#x62;&#46;&#99;&#111;&#109;">&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#x74;&#104;&#117;&#x62;&#46;&#99;&#111;&#109;</a>不要做任何更改！</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
 <p>回车，再次输入yes后回车，就会显示：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Hi BaiYuQiu! You<span class="string">&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure>
@@ -77,7 +77,7 @@
 <p>hexo g用来生成Hexo页面，hexo d是使用hexo-deployer-git将页面部署到Github仓库中，当部署成功后，就可以可以在浏览器下输入xxx.github.io显示跟本地部署一样的内容了。</p>
 ]]></content>
       <categories>
-        <category>搭建博客</category>
+        <category>随笔</category>
       </categories>
       <tags>
         <tag>hexo</tag>
@@ -161,7 +161,7 @@
 <h4 id="方法一-1"><a href="#方法一-1" class="headerlink" title="方法一"></a>方法一</h4><p>在想要显示的文章预览部分后加上<code>&lt;!--more--&gt;</code>，这样首页和列表页展示的文章内容就是<code>&lt;!--more--&gt;</code>之前的文字，而之后的就不会显示了，同时也保留文章原样式。</p>
 ]]></content>
       <categories>
-        <category>搭建博客</category>
+        <category>随笔</category>
       </categories>
       <tags>
         <tag>hexo</tag>
