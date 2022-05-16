@@ -183,6 +183,8 @@
 
 <h4 id="查看依赖库"><a href="#查看依赖库" class="headerlink" title="查看依赖库"></a>查看依赖库</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">otool -L WeChat</span><br></pre></td></tr></table></figure>
 
+<h4 id="查看汇编"><a href="#查看汇编" class="headerlink" title="查看汇编"></a>查看汇编</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">otool -v -t WeChat</span><br></pre></td></tr></table></figure>
+
 <h5 id="查看所有类"><a href="#查看所有类" class="headerlink" title="查看所有类"></a>查看所有类</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">otool -v -s __TEXT __objc_classname WeChat</span><br></pre></td></tr></table></figure>
 
 <h5 id="查看所有方法"><a href="#查看所有方法" class="headerlink" title="查看所有方法"></a>查看所有方法</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">otool -v -s __TEXT __objc_methname WeChat</span><br></pre></td></tr></table></figure>
