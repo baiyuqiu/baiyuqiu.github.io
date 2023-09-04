@@ -46,7 +46,7 @@
 <h4 id="点击-SSH-and-GPG-Keys"><a href="#点击-SSH-and-GPG-Keys" class="headerlink" title="点击 SSH and GPG Keys"></a>点击 SSH and GPG Keys</h4><p><img src="/images/220410134856.png" alt="img"></p>
 <h4 id="点击-New-SSH-Key"><a href="#点击-New-SSH-Key" class="headerlink" title="点击 New SSH Key"></a>点击 New SSH Key</h4><p><img src="/images/220410135134.png" alt="img"></p>
 <h4 id="添加-SSH-Key"><a href="#添加-SSH-Key" class="headerlink" title="添加 SSH Key"></a>添加 SSH Key</h4><p><img src="/images/220410141007.png" alt="img"><br>然后点击 ADD SSH Key。</p>
-<h4 id="测试SSH是否绑定成功"><a href="#测试SSH是否绑定成功" class="headerlink" title="测试SSH是否绑定成功"></a>测试SSH是否绑定成功</h4><p>输入以下命令：注意：<a href="mailto:&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#x74;&#104;&#117;&#x62;&#46;&#99;&#111;&#109;">&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#x74;&#104;&#117;&#x62;&#46;&#99;&#111;&#109;</a>不要做任何更改！</p>
+<h4 id="测试SSH是否绑定成功"><a href="#测试SSH是否绑定成功" class="headerlink" title="测试SSH是否绑定成功"></a>测试SSH是否绑定成功</h4><p>输入以下命令：注意：<a href="mailto:&#103;&#105;&#116;&#x40;&#103;&#105;&#x74;&#x68;&#x75;&#98;&#x2e;&#x63;&#x6f;&#x6d;">&#103;&#105;&#116;&#x40;&#103;&#105;&#x74;&#x68;&#x75;&#98;&#x2e;&#x63;&#x6f;&#x6d;</a>不要做任何更改！</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
 <p>回车，再次输入yes后回车，就会显示：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Hi BaiYuQiu! You<span class="string">&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure>
@@ -57,8 +57,8 @@
 <h3 id="使用Hexo创建博客"><a href="#使用Hexo创建博客" class="headerlink" title="使用Hexo创建博客"></a>使用Hexo创建博客</h3><h4 id="下载仓库"><a href="#下载仓库" class="headerlink" title="下载仓库"></a>下载仓库</h4><p>登录Github, 打开刚才新建的项目yourname.github.io<br>复制仓库的地址，仓库地址如下图<br><img src="/images/220410141506.png" alt="img"><br>然后在Mac电脑桌面输入下面命令，就能将Github仓库拉到本地，后面可以使用Git工具提交内容</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Desktop</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/xxx/xxx.github.io.git</span><br></pre></td></tr></table></figure>
 <h4 id="创建博客"><a href="#创建博客" class="headerlink" title="创建博客"></a>创建博客</h4><p>打开电脑“终端”应用，输入命令</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Desktop/BaiYuQiu.github.io</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-<p>当命令执行完成后，会在BaiYuQiu.github.io文件夹下生成如下图所示的目录结构<br><img src="/images/220410143207.png" alt="img"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/Desktop/xxx.github.io</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<p>当命令执行完成后，会在xxx.github.io文件夹下生成如下图所示的目录结构<br><img src="/images/220410143207.png" alt="img"></p>
 <h4 id="本地部署"><a href="#本地部署" class="headerlink" title="本地部署"></a>本地部署</h4><p>接下去要安装相关依赖，并在自己电脑进行本地部署</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; hexo server</span><br></pre></td></tr></table></figure>
 <p>直到结果显示如下，</p>
@@ -67,12 +67,12 @@
 <h4 id="远程部署"><a href="#远程部署" class="headerlink" title="远程部署"></a>远程部署</h4><p>通过上面的本地部署，接下去我们怎么将自己的博客部署到Github page上，让大家可以访问呢。</p>
 <h5 id="安装工具-1"><a href="#安装工具-1" class="headerlink" title="安装工具"></a>安装工具</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 
-<h5 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h5><p>打开BaiYuQiu.github.io目录下_config.yml文件，将该文件最底部的deploy关键字代码：</p>
+<h5 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h5><p>打开xxx.github.io目录下_config.yml文件，将该文件最底部的deploy关键字代码：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: </span><br></pre></td></tr></table></figure>
 <p>修改为:</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: https://github.com/xxx/xxx.github.io.git</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
 
-<h5 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h5><p>在BaiYuQiu.github.io目录下，执行</p>
+<h5 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h5><p>在xxx.github.io目录下，执行</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure>
 <p>hexo g用来生成Hexo页面，hexo d是使用hexo-deployer-git将页面部署到Github仓库中，当部署成功后，就可以可以在浏览器下输入xxx.github.io显示跟本地部署一样的内容了。</p>
 ]]></content>
