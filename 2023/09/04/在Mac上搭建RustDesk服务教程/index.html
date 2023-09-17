@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="简介RustDesk是一款开箱即用的开源免费的全平台远程桌面软件，包括MacOS、Windows和Android的客户端支持。它可以替代类似于向日葵远程桌面、ToDesk等远程桌面服务，这可以让你完全掌控数据，不用担心安全问题。你可以选择使用官方的注册&#x2F;中继服务器，也可以自建服务器，甚至基于官方代码开发自己的版本。 rustdesk-server仓库地址: https:&#x2F;&#x2F;github.com&#x2F;r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Mac上搭建RustDesk服务教程">
+<meta property="og:url" content="http://example.com/2023/09/04/%E5%9C%A8Mac%E4%B8%8A%E6%90%AD%E5%BB%BARustDesk%E6%9C%8D%E5%8A%A1%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="白玉邱&#39;s 博客">
+<meta property="og:description" content="简介RustDesk是一款开箱即用的开源免费的全平台远程桌面软件，包括MacOS、Windows和Android的客户端支持。它可以替代类似于向日葵远程桌面、ToDesk等远程桌面服务，这可以让你完全掌控数据，不用担心安全问题。你可以选择使用官方的注册&#x2F;中继服务器，也可以自建服务器，甚至基于官方代码开发自己的版本。 rustdesk-server仓库地址: https:&#x2F;&#x2F;github.com&#x2F;r">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/2309042036.jpg">
+<meta property="og:image" content="http://example.com/images/1694930079747.jpg">
+<meta property="og:image" content="http://example.com/images/1694931305486.jpg">
+<meta property="article:published_time" content="2023-09-04T11:42:58.000Z">
+<meta property="article:modified_time" content="2023-09-17T06:22:43.895Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/2309042036.jpg">
+
+
+<link rel="canonical" href="http://example.com/2023/09/04/%E5%9C%A8Mac%E4%B8%8A%E6%90%AD%E5%BB%BARustDesk%E6%9C%8D%E5%8A%A1%E6%95%99%E7%A8%8B/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/09/04/%E5%9C%A8Mac%E4%B8%8A%E6%90%AD%E5%BB%BARustDesk%E6%9C%8D%E5%8A%A1%E6%95%99%E7%A8%8B/","path":"2023/09/04/在Mac上搭建RustDesk服务教程/","title":"在Mac上搭建RustDesk服务教程"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>在Mac上搭建RustDesk服务教程 | 白玉邱's 博客</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="白玉邱's 博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">白玉邱's 博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2"><span class="nav-number">2.</span> <span class="nav-text">服务器部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-number">2.1.</span> <span class="nav-text">环境准备</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt=""
+      src="/images/headers/baiyuqiu.jpeg">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description">求之于势，不责于人</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/09/04/%E5%9C%A8Mac%E4%B8%8A%E6%90%AD%E5%BB%BARustDesk%E6%9C%8D%E5%8A%A1%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/headers/baiyuqiu.jpeg">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="白玉邱's 博客">
+      <meta itemprop="description" content="求之于势，不责于人">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="在Mac上搭建RustDesk服务教程 | 白玉邱's 博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          在Mac上搭建RustDesk服务教程
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-09-04 19:42:58" itemprop="dateCreated datePublished" datetime="2023-09-04T19:42:58+08:00">2023-09-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-09-17 14:22:43" itemprop="dateModified" datetime="2023-09-17T14:22:43+08:00">2023-09-17</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>RustDesk是一款开箱即用的开源免费的全平台远程桌面软件，包括<code>MacOS</code>、<code>Windows</code>和<code>Android</code>的客户端支持。它可以替代类似于<code>向日葵远程桌面</code>、<code>ToDesk</code>等远程桌面服务，这可以让你完全掌控数据，不用担心安全问题。你可以选择使用官方的注册/中继服务器，也可以自建服务器，甚至基于官方代码开发自己的版本。</p>
+<p>rustdesk-server仓库地址: <a target="_blank" rel="noopener" href="https://github.com/rustdesk/rustdesk-server">https://github.com/rustdesk/rustdesk-server</a></p>
+<p>官方网站地址: <a target="_blank" rel="noopener" href="https://rustdesk.com/">https://rustdesk.com</a></p>
+<span id="more"></span>
+
+<h1 id="服务器部署"><a href="#服务器部署" class="headerlink" title="服务器部署"></a>服务器部署</h1><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ol>
+<li><p>服务器需要有安装Docker和DockerCompose环境，如果没有安装，可以参考以下方法</p>
+<blockquote>
+<ul>
+<li>方法一：<a target="_blank" rel="noopener" href="https://www.hash070.top/archives/docker-and-docker-compose-install.html">Docker 与 Docker Compose的安装</a></li>
+<li>方法二：<a target="_blank" rel="noopener" href="https://www.runoob.com/docker/macos-docker-install.html">MacOS Docker 安装</a>，安装<code>Docker Desktop</code></li>
+</ul>
+</blockquote>
+</li>
+<li><p>首次安装<code>Docker Desktop</code>后，有可能会报<code>Is Docker daemon running</code>，需要点击<code>菜单栏</code>里<code>Docker</code>图标，然后在下拉列表中，点击<code>Restart</code></p>
+</li>
+<li><p>安装<code>rustdesk-serve</code>镜像</p>
+</li>
+</ol>
+<ul>
+<li>修改镜像源，<code>Preference</code> -&gt; <code>Docker Engine</code>添加如下，并点击<code>Apply &amp; Restart</code>，应用会对应修改<code>~/.docker/daemon.json</code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&quot;registry-mirrors&quot;: [</span><br><span class="line">    &quot;https://hub-mirror.c.163.com&quot;,</span><br><span class="line">    &quot;https://ustc-edu-cn.mirror.aliyuncs.com&quot;,</span><br><span class="line">    &quot;https://ghcr.io&quot;,</span><br><span class="line">    &quot;https://mirror.baidubce.com&quot;</span><br><span class="line">  ]</span><br></pre></td></tr></table></figure></li>
+<li>安装<code>rustdesk-serve</code>镜像<br>在<code>Docker Desktop</code>左边栏选中<code>Images</code>，然后在搜索框中输入<code>rustdesk-serve</code>，如下图<br><img src="/images/2309042036.jpg" alt="img"></li>
+</ul>
+<ol start="4">
+<li><p>检查Docker Desktop是否安装好</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker search rustdesk-serve</span><br><span class="line">或</span><br><span class="line">docker info</span><br></pre></td></tr></table></figure></li>
+<li><p>新建Docker Container</p>
+</li>
+</ol>
+<p>5.1 hbbs服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name hbbs -p 21115:21115 -p 21116:21116 -p 21116:21116/udp -p 21118:21118 -v ~/.docker/rustdesk/hbbs/root:/root -td rustdesk/rustdesk-server:latest hbbs -r 服务器公开ip -m 邮箱 -k 密码</span><br></pre></td></tr></table></figure>
+<ul>
+<li>服务器公开ip: 填写服务器域名或者ip</li>
+<li>邮箱: 任意可用邮箱</li>
+<li>密码: 可以任意</li>
+</ul>
+<p>5.2 hbbr服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name hbbr -p 21117:21117 -p 21119:21119 -v ~/.docker/rustdesk/hbbr:/root -td rustdesk/rustdesk-server:latest hbbr -m 邮箱</span><br></pre></td></tr></table></figure>
+<ul>
+<li>邮箱: 任意可用邮箱(与hbbs服务中邮箱保持一致)</li>
+</ul>
+<p>5.3 检查hbbr、hbbs服务<br>当新建好hbbs、hbbr服务后，会在RestDesk应用中看到对应的两个服务；如下图<br><img src="/images/1694930079747.jpg" alt="img"></p>
+<p>5.4 rustdesk-server编译和运行</p>
+<ul>
+<li>【下载】rustdesk-server仓库代码</li>
+<li>【编译】cargo build –release</li>
+<li>【检查】./target/release/hbbr 和 ./target/release/hbbs</li>
+<li>【运行】执行以上编译出来的服务</li>
+<li>当运行以上服务后，会在对应的根目录下生成id_ed25519和id_ed25519.pub文件</li>
+</ul>
+<p>5.5 RustDesk应用中继服务器<br><img src="/images/1694931305486.jpg" alt="img"></p>
+<ol start="6">
+<li>遇到问题</li>
+<li>1 问题一：如果发生<code>docker info</code>等docker命令会卡住。<br>解决办法：打开Mac电脑<code>监视器</code>，将带有docker的进程全部关闭，如果有开着vpn，建议先关掉vpn</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/atom.xml">
+          <span class="icon">
+            <i class="fa fa-rss"></i>
+          </span>
+
+          <span class="label">RSS</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/05/16/otool%E4%BD%BF%E7%94%A8/" rel="prev" title="otool使用">
+                  <i class="fa fa-chevron-left"></i> otool使用
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
