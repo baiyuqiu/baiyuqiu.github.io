@@ -2,7 +2,7 @@
 title: 使用Hexo+Github搭建个人博客
 tags:
   hexo
-categories: 搭建博客
+categories: 随笔
 date: 2022-04-17 23:22:33
 ---
 
@@ -165,10 +165,10 @@ git clone https://github.com/xxx/xxx.github.io.git
 #### 创建博客
 打开电脑“终端”应用，输入命令
 ``` bash
-cd ~/Desktop/BaiYuQiu.github.io
+cd ~/Desktop/xxx.github.io
 hexo init
 ```
-当命令执行完成后，会在BaiYuQiu.github.io文件夹下生成如下图所示的目录结构
+当命令执行完成后，会在xxx.github.io文件夹下生成如下图所示的目录结构
 ![img](/images/220410143207.png)
 
 #### 本地部署
@@ -194,7 +194,7 @@ $ npm install hexo-deployer-git --save
 ```
 
 ##### 修改配置
-打开BaiYuQiu.github.io目录下_config.yml文件，将该文件最底部的deploy关键字代码：
+打开xxx.github.io目录下_config.yml文件，将该文件最底部的deploy关键字代码：
 ``` bash
 deploy:
   type: 
@@ -208,7 +208,7 @@ deploy:
 ```
 
 ##### 部署
-在BaiYuQiu.github.io目录下，执行
+在xxx.github.io目录下，执行
 ``` bash
 $ hexo g && hexo deploy
 ```

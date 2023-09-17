@@ -1,7 +1,7 @@
 ---
 title: Hexo的使用
 tags: hexo
-categories: 搭建博客
+categories: 随笔
 date: 2022-04-26 22:20:33
 ---
 
