@@ -278,6 +278,8 @@
     <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>RustDesk是一款开箱即用的开源免费的全平台远程桌面软件，包括<code>MacOS</code>、<code>Windows</code>和<code>Android</code>的客户端支持。它可以替代类似于<code>向日葵远程桌面</code>、<code>ToDesk</code>等远程桌面服务，这可以让你完全掌控数据，不用担心安全问题。你可以选择使用官方的注册/中继服务器，也可以自建服务器，甚至基于官方代码开发自己的版本。</p>
 <p>rustdesk仓库地址: <a href="https://github.com/rustdesk/rustdesk">https://github.com/rustdesk/rustdesk</a></p>
 <p>官方网站地址: <a href="https://rustdesk.com/">https://rustdesk.com</a></p>
+<span id="more"></span>
+
 <h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><ul>
 <li>下载libsciter库 <a href="https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.win/x64/sciter.dll">Windows</a> | <a href="https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.lnx/x64/libsciter-gtk.so">Linux</a> | <a href="https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.osx/libsciter.dylib">macOS</a></li>
 <li>准备好Rust开发环境和C++编译环境</li>

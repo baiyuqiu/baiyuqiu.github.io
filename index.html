@@ -210,7 +210,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-09 20:52:29" itemprop="dateModified" datetime="2023-10-09T20:52:29+08:00">2023-10-09</time>
+      <time title="修改时间：2023-10-09 22:19:47" itemprop="dateModified" datetime="2023-10-09T22:19:47+08:00">2023-10-09</time>
     </span>
 
   
@@ -226,71 +226,14 @@
           <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>RustDesk是一款开箱即用的开源免费的全平台远程桌面软件，包括<code>MacOS</code>、<code>Windows</code>和<code>Android</code>的客户端支持。它可以替代类似于<code>向日葵远程桌面</code>、<code>ToDesk</code>等远程桌面服务，这可以让你完全掌控数据，不用担心安全问题。你可以选择使用官方的注册/中继服务器，也可以自建服务器，甚至基于官方代码开发自己的版本。</p>
 <p>rustdesk仓库地址: <a target="_blank" rel="noopener" href="https://github.com/rustdesk/rustdesk">https://github.com/rustdesk/rustdesk</a></p>
 <p>官方网站地址: <a target="_blank" rel="noopener" href="https://rustdesk.com/">https://rustdesk.com</a></p>
-<h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><ul>
-<li>下载libsciter库 <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.win/x64/sciter.dll">Windows</a> | <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.lnx/x64/libsciter-gtk.so">Linux</a> | <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.osx/libsciter.dylib">macOS</a></li>
-<li>准备好Rust开发环境和C++编译环境</li>
-<li>安装<a target="_blank" rel="noopener" href="https://github.com/microsoft/vcpkg">vcpkg</a>，并正确的设置系统环境<code>VCPKG_ROOT</code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd ~/Desktop/github</span><br><span class="line">git clone https://github.com/microsoft/vcpkg.git</span><br><span class="line">cd vcpkg</span><br><span class="line"># 在~/.bash_profile添加如下</span><br><span class="line">export VCPKG_ROOT=&quot;$HOME/Desktop/github/vcpkg&quot;</span><br><span class="line">export PATH=$VCPKG_ROOT:$PATH</span><br></pre></td></tr></table></figure></li>
-<li>安装flutter<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd ~/Desktop/github</span><br><span class="line">git clone https://github.com/flutter/flutter.git</span><br><span class="line">git checkout 3.10.6</span><br><span class="line"># 在~/.bash_profile添加如下</span><br><span class="line">export FLUTTER_ROOT=&quot;$HOME/Desktop/github/flutter&quot;</span><br><span class="line">export PATH=$FLUTTER_ROOT/bin:$PATH</span><br></pre></td></tr></table></figure></li>
-<li>安装依赖库</li>
-</ul>
-<ol>
-<li>查看支持的架构<code>ls $VCPKG_ROOT/triplets/community/*.cmake</code></li>
-<li>根据电脑cpu架构安装对应版本:<br>&ensp; a. <B>Windows:</B> <code>vcpkg install libvpx:x64-windows-static libyuv:x64-windows-static opus:x64-windows-static aom:x64-windows-static</code><br>&ensp; b. <B>Linux/macOS:</B><code>vcpkg install libvpx libyuv opus aom</code></li>
-<li>安装成功后，会在<code>$VCPKG_ROOT/installed/</code>目录下有对应架构的库；</li>
-</ol>
-<ul>
-<li>rustdesk客户端<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd ~/Desktop/github</span><br><span class="line">git clone https://github.com/rustdesk/rustdesk.git</span><br><span class="line">cd rustdesk</span><br><span class="line">git checkout 1.2.2</span><br></pre></td></tr></table></figure>
-注：保证libsciter库在<code>~/Desktop/github/rustdesk</code>目录下。</li>
-</ul>
-<h1 id="rustdesk编译"><a href="#rustdesk编译" class="headerlink" title="rustdesk编译"></a>rustdesk编译</h1><ul>
-<li>【PC】编译并运行</li>
-</ul>
-<ol>
-<li><p>rust</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/Desktop/github/rustdesk</span><br><span class="line">cargo run 或者 cargo run --release</span><br></pre></td></tr></table></figure></li>
-<li><p>flutter</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/Desktop/github/rustdesk/flutter</span><br><span class="line">flutter pub get</span><br><span class="line">./run.sh</span><br></pre></td></tr></table></figure></li>
-<li><p>打包</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/Desktop/github/rustdesk</span><br><span class="line">./build.py</span><br></pre></td></tr></table></figure></li>
-</ol>
-<ul>
-<li>[Phone]编译并运行</li>
-</ul>
-<ol>
-<li>iOS编译<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/Desktop/github/rustdesk/flutter</span><br><span class="line">flutter pub get</span><br><span class="line">./ios_arm64.sh</span><br></pre></td></tr></table></figure></li>
-<li>iOS打包<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/Desktop/github/rustdesk/flutter</span><br><span class="line">./build_ios.sh</span><br></pre></td></tr></table></figure></li>
-</ol>
-<ul>
-<li>【VSCode】编译并调试</li>
-</ul>
-<ol>
-<li>编译<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/Desktop/github/rustdesk</span><br><span class="line">cargo build --release --features &quot;flutter,flutter_texture_render&quot;</span><br></pre></td></tr></table></figure></li>
-<li>launch.json配置<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="comment">// 使用 IntelliSense 了解相关属性。 </span></span><br><span class="line">    <span class="comment">// 悬停以查看现有属性的描述。</span></span><br><span class="line">    <span class="comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0.2.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;(flutter) RustDesk&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;dart&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;request&quot;</span><span class="punctuation">:</span> <span class="string">&quot;launch&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;flutterMode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;debug&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;program&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;workspaceRoot&#125;/flutter/lib/main.dart&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;(OSX) RustDesk&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;lldb&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;request&quot;</span><span class="punctuation">:</span> <span class="string">&quot;launch&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;program&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;workspaceRoot&#125;/target/debug/rustdesk&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;stopAtEntry&quot;</span><span class="punctuation">:</span> <span class="keyword">false</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;cwd&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;workspaceRoot&#125;&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;(Windows) RustDesk&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cppvsdbg&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;request&quot;</span><span class="punctuation">:</span> <span class="string">&quot;launch&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;program&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;workspaceRoot&#125;/target/debug/rustdesk.exe&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;stopAtEntry&quot;</span><span class="punctuation">:</span> <span class="keyword">false</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;cwd&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;workspaceRoot&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;environment&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;externalConsole&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></li>
-<li>调试</li>
-</ol>
-<h1 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h1><ol>
-<li><p>问题一<br><img src="/images/2309062320.png" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">需要后面加上cargo build -Z namespaced-features</span><br></pre></td></tr></table></figure></li>
-<li><p>问题二<br><img src="/images/2309061512.jpg" alt="img"></p>
-</li>
-<li><p>问题三<br><img src="/images/2309072123.png" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">检查cargo版本是否1.72.0，如果不是，可通过curl https://sh.rustup.rs -sSf | sh进行安装</span><br></pre></td></tr></table></figure></li>
-<li><p>问题四<br><img src="/images/2309061516.jpg" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">执行方框中语句</span><br></pre></td></tr></table></figure></li>
-<li><p>问题五<br><img src="/images/2309062107.jpg" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在该路径下没有指定的库和头文件，需要安装指定平台的库vcpkg install opus:arm64-ios</span><br></pre></td></tr></table></figure></li>
-<li><p>问题六<br><img src="/images/2309080819.png" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">这个错误是没有编译出libvpx.a没有编译出arm64架构；方法如下:</span><br><span class="line">cd vcpkg/buildtrees/libvp/src</span><br><span class="line">cd *</span><br><span class="line">./configure —help</span><br><span class="line">./configure --target=&quot;arm64-darwin-gcc armv7-darwin-gcc armv7s-darwin-gcc&quot;</span><br></pre></td></tr></table></figure></li>
-<li><p>问题七<br>env: python: No such file or directory</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s $(which python3) /usr/local/bin/python</span><br><span class="line">sudo ln -s /Library/Developer/CommandLineTools/usr/bin/python3 /Library/Developer/CommandLineTools/usr/bin/python</span><br></pre></td></tr></table></figure></li>
-<li><p>问题八<br>执行./flutter/build_ios.sh编译出来的ipa安装后显示空白</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Editing the Runner build setting Deployment -&gt; Strip Style -&gt; Non-Global Symbols</span><br></pre></td></tr></table></figure></li>
-<li><p>问题九<br>xcode直接运行的应用可以运行，不调试应用就会崩溃</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">修改schema中run —&gt; build configuration —&gt; release</span><br></pre></td></tr></table></figure></li>
-<li><p>问题十<br>执行./flutter/build_ios.sh，报exportArchive: “Runner.ap” requires a provisioning profile</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1、修改./flutter/iOS/exportOptions.plist中对应的method:development或app-store、teamID、provisioningProfiles</span><br><span class="line">2、在./flutter/build_ios.sh加上--export-options-plist=$PWD/ios/exportOptions.plist</span><br></pre></td></tr></table></figure></li>
-</ol>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/09/27/RustDesk%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%BC%96%E8%AF%91/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
