@@ -10,6 +10,8 @@ rustdesk仓库地址: https://github.com/rustdesk/rustdesk
 
 官方网站地址: https://rustdesk.com
 
+<!--more-->
+
 # 环境准备
 - 下载libsciter库 [Windows](https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.win/x64/sciter.dll) | [Linux](https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.lnx/x64/libsciter-gtk.so) | [macOS](https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.osx/libsciter.dylib)
 - 准备好Rust开发环境和C++编译环境
