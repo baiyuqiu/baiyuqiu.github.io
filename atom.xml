@@ -6,10 +6,31 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-09-17T06:22:43.895Z</updated>
+  <updated>2023-10-09T12:52:29.709Z</updated>
   <id>http://example.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>RustDesk客户端编译</title>
+    <link href="http://example.com/2023/09/27/RustDesk%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%BC%96%E8%AF%91/"/>
+    <id>http://example.com/2023/09/27/RustDesk%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%BC%96%E8%AF%91/</id>
+    <published>2023-09-27T13:33:23.000Z</published>
+    <updated>2023-10-09T12:52:29.709Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>在Mac上搭建RustDesk服务教程</title>
