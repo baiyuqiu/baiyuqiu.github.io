@@ -191,5 +191,17 @@ xcode直接运行的应用可以运行，不调试应用就会崩溃
 2、在./flutter/build_ios.sh加上--export-options-plist=$PWD/ios/exportOptions.plist
 ```
 
+11. 问题十一(Windows)
+![img](/images/2310120807.png)
+```
+1. 报错信息提示需要设置LIBCLANG_PATH的环境变量，即使设置了llvm和gcc的环境变量后还报错，通过export -p查看下；
+2. 通过export LIBCLANG_PATH="D:\\LLVM\\bin"进行设置
+```
+- [llvm](https://github.com/llvm/llvm-project)
 
+12. 问题十二(Windows)
+无法直接打开`RustDesk.exe`
+```
+需要保证sciter.dll库与RustDesk.exe是同级目录，或者C:/Windows/System32
+```
 
