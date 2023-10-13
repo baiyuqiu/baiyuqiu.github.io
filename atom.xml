@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-10-09T14:19:47.142Z</updated>
+  <updated>2023-10-13T12:19:45.354Z</updated>
   <id>http://example.com/</id>
   
   <generator uri="https://hexo.io/">Hexo</generator>
@@ -16,7 +16,7 @@
     <link href="http://example.com/2023/09/27/RustDesk%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%BC%96%E8%AF%91/"/>
     <id>http://example.com/2023/09/27/RustDesk%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%BC%96%E8%AF%91/</id>
     <published>2023-09-27T13:33:23.000Z</published>
-    <updated>2023-10-09T14:19:47.142Z</updated>
+    <updated>2023-10-13T12:19:45.354Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;RustDesk是一款开箱即用的开源免费的全平台远程桌面软件，包括&lt;code&gt;MacOS&lt;/code&gt;、&lt;code&gt;Windows&lt;/code&gt;和&lt;code&gt;Android&lt;/code&gt;的客户端支持。它可以替代类似于&lt;code&gt;向日葵远程桌面&lt;/code&gt;、&lt;code&gt;ToDesk&lt;/code&gt;等远程桌面服务，这可以让你完全掌控数据，不用担心安全问题。你可以选择使用官方的注册/中继服务器，也可以自建服务器，甚至基于官方代码开发自己的版本。&lt;/p&gt;
