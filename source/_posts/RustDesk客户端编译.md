@@ -207,4 +207,5 @@ xcode直接运行的应用可以运行，不调试应用就会崩溃
 
 13. 问题十三(Windows)
 Windows应用签名，可以参考：
-a. [客户端sign一个签名证书](https://blog.csdn.net/wangshubo1989/article/details/50849914)
+- [客户端sign一个签名证书](https://blog.csdn.net/wangshubo1989/article/details/50849914)
+- [Windows代码签名证书](https://blog.csdn.net/dounick/article/details/105643285)
