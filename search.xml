@@ -352,9 +352,13 @@
 <ol start="12">
 <li><p>问题十二(Windows)<br>无法直接打开<code>RustDesk.exe</code></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">需要保证sciter.dll库与RustDesk.exe是同级目录，或者C:/Windows/System32</span><br></pre></td></tr></table></figure></li>
-<li><p>问题十三(Windows)<br>Windows应用签名，可以参考：<br>a. <a href="https://blog.csdn.net/wangshubo1989/article/details/50849914">客户端sign一个签名证书</a></p>
+<li><p>问题十三(Windows)<br>Windows应用签名，可以参考：</p>
 </li>
 </ol>
+<ul>
+<li><a href="https://blog.csdn.net/wangshubo1989/article/details/50849914">客户端sign一个签名证书</a></li>
+<li><a href="https://blog.csdn.net/dounick/article/details/105643285">Windows代码签名证书</a></li>
+</ul>
 ]]></content>
   </entry>
 </search>
